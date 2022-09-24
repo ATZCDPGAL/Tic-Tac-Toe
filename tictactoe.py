@@ -7,6 +7,7 @@ currentPlayer = "X"
 winner = None
 gameRunning = True
 
+
 """ Printing the game board """
 def printBoard(board):
     print(board[0] + " | " + board[1] + " | " + board[2])
@@ -15,6 +16,7 @@ def printBoard(board):
     print("---------")
     print(board[6] + " | " + board[7] + " | " + board[8])
 
+
 """ Take player input """
 def playerInput(board):
     inp = int(input("ingresa un número de 1-9: "))
@@ -22,6 +24,7 @@ def playerInput(board):
         board[inp-1] = currentPlayer
     else:
         print("opps, un jugador ya tiene este espacio")
+
 
 """ Check for win or tie """
 def checkHorizontle(board):
@@ -68,8 +71,8 @@ def checkWin():
     if checkDiagonal(board) or checkHorizontle(board) or checkRow(board):
         print(f"El ganador es {winner}")
 
-""" Switch the player """
 
+""" Switch the player """
 def switchPlayer():
     global currentPlayer
     if currentPlayer == "X":
@@ -77,8 +80,8 @@ def switchPlayer():
     else:
         currentPlayer = "X"
 
-""" computer """
 
+""" computer """
 def computer(board):
     while currentPlayer == "O":
         position = random.randint(0,8)
@@ -86,8 +89,8 @@ def computer(board):
             board[position] = "O"
             switchPlayer()
 
+                  
 """ Chek for win or tie again """
-
 while gameRunning:
     printBoard(board)
     playerInput(board)
